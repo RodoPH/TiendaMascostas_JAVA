@@ -1,12 +1,23 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import javax.swing.*;
 
 public class Procesos {
+	
 	Cliente clien = new Cliente();
-	Tortuga tor1 = new Tortuga("Chikie", 1);
-	Perro aniPer = new Perro();
+	MascotaFactory mFactory = new MascotaFactory();
+	Tortuga tor1 = (Tortuga) mFactory.getMascota("Tortuga");
+	Perro aniPer = (Perro) mFactory.getMascota("Perro");
 	Mascota mas = new Mascota();
 
 	public void inicio() {
+		
+		ArrayList<Mascota> mascotas = new ArrayList<>();
+		for(Iterator<Mascota> iterator = mascotas.iterator(); iterator.hasNext(); ) {
+			System.out.println(iterator.next());
+		}
+		
 		clien.setNombre(JOptionPane.showInputDialog(null, "¿cuál es su nombre?", "Datos Cliente", 1));
 		clien.setTelefono(
 				JOptionPane.showInputDialog(null, "Escribe tu número de telefono, por favor", "Datos del Cliente", 1));
@@ -28,7 +39,8 @@ public class Procesos {
 
 				Object[] listaMascotas = { "Perro", "Tortuga", "León", "Pez" };
 
-				Object elijeMascota = JOptionPane.showInputDialog(null, "¿Qué mascota quieres?", "MASCOTA", 3, null,listaMascotas, listaMascotas[0]);
+				Object elijeMascota = JOptionPane.showInputDialog(null, "¿Qué mascota quieres?", 
+						"MASCOTA", 3, null,listaMascotas, listaMascotas[0]);
 				if (elijeMascota == listaMascotas[0]) {
 					aniPer.vacuna();
 				}
@@ -46,16 +58,12 @@ public class Procesos {
 				if (elijeMascota == listaMascotas[3]){
 					Object[] listaPez ={"Beta", "Payaso","Globo"};
 					
-					Object elijePez = JOptionPane.showInputDialog(null,"¿Qué especie de pez quieres?","Especie pez",1,null,listaPez,listaPez[0]);
-			
+					Object elijePez = JOptionPane.showInputDialog(null,"¿Qué especie de pez quieres?",
+							"Especie pez",1,null,listaPez,listaPez[0]);
 						System.out.println("Excelente elección, felicidades por tu nuevo pez " +elijePez);
 					}
 				}
-
-				
-
 			}
-
 		clien.getNombre();
 		clien.getEdad();
 		clien.getDireccion();

@@ -1,6 +1,8 @@
 import javax.swing.*;
 
-public class Perro extends Mascota{
+public class Perro implements IMascota{
+	private String especie;
+	private int edad;
 	int vacuna;
 	
 	public void vacuna(){
@@ -14,6 +16,47 @@ public class Perro extends Mascota{
 	}
 	
 	}
-	
 
+	@Override
+	public String getEspecie() {
+		// TODO Auto-generated method stub
+		return this.especie;
+	}
+
+	@Override
+	public void setEspecie(String especie) {
+		this.especie = especie;
+	}
+
+	@Override
+	public int getEdad() {
+		// TODO Auto-generated method stub
+		return edad;
+	}
+
+	@Override
+	public void setEdad(int edad) {
+		this.edad = edad;
+		
+	}
+
+	@Override
+	public void alimentarse() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dormir() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void caminar() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }
+
