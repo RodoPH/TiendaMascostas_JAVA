@@ -1,7 +1,16 @@
+import java.util.ArrayList;
+import java.util.Iterator;
 
-public class Mascota implements Acciones {
+public class Mascota implements Acciones, Iterable<Mascota> {
 
 	private String especie;
+	public ArrayList<Mascota> mascotas;
+	
+	@Override
+	public Iterator<Mascota> iterator() {
+		// TODO Auto-generated method stub
+		return new MascotaIterator();
+	}
 	
 	public void setEspecie(String especie) {
 		this.especie = especie;
@@ -12,14 +21,12 @@ public class Mascota implements Acciones {
 		return especie;
 	}
 
-	///////////////////////// 7
-	// Usando métodos implementados de la interface Acciones
-
 	@Override
 	public void Alimentarse() {
 		System.out.println("El animal de especie " + getEspecie() + " está alimentandose");
 
 	}
+	
 	@Override 
 	public void Dormir(){
 		System.out.println("El animal de especie " + getEspecie() + " está dumiendo");
@@ -30,6 +37,6 @@ public class Mascota implements Acciones {
 	public void Caminar(){
 		System.out.println("El animal de especie " + getEspecie() + " le gusta caminar");
 	}
-	
 
+	
 }
